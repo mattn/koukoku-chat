@@ -33,7 +33,7 @@ func main() {
 		}
 	}()
 
-	wg.Add(2)
+	wg.Add(1)
 	go func() {
 		defer wg.Done()
 		scanner := bufio.NewScanner(os.Stdin)
