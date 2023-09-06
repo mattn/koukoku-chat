@@ -25,7 +25,7 @@ func main() {
 		defer wg.Done()
 		scanner := bufio.NewScanner(conn)
 		for scanner.Scan() {
-			line := scanner.Text()
+			line := strings.TrimSpace(scanner.Text())
 			if !strings.HasPrefix(line, ">>") {
 				continue
 			}
