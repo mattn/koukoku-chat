@@ -29,7 +29,7 @@ func main() {
 			if !strings.HasPrefix(line, ">>") {
 				continue
 			}
-			println(line)
+			fmt.Println(line)
 		}
 	}()
 
