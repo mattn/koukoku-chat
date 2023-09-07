@@ -21,6 +21,7 @@ func main() {
 	}
 	defer conn.Close()
 	log.Println("client: connected to: ", conn.RemoteAddr())
+	fmt.Fprintln(conn, "nobody")
 
 	var wg sync.WaitGroup
 	wg.Add(1)
@@ -29,9 +30,6 @@ func main() {
 		scanner := bufio.NewScanner(conn)
 		for scanner.Scan() {
 			line := strings.TrimSpace(re.ReplaceAllString(scanner.Text(), ""))
-			if !strings.HasPrefix(line, ">>") {
-				continue
-			}
 			fmt.Println(line)
 		}
 	}()
